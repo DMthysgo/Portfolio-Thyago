@@ -8,6 +8,8 @@
 /* -- QUANTUM --*/
 /* ----- FONTES DE TEXTO ----- */
 body {
+  transition: background-color 0.5s;
+  font-background-color: #111111;
   font-family: "Sedan SC", serif, "Special Elite", system-ui, "Caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -32,6 +34,7 @@ body {
 * {
   color: #ffdead;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 /* ----- SEÇÕES ----- */
@@ -168,11 +171,21 @@ header:before {
 }
 /* Seção Sobre */
 section.sobre {
-  background-color: #4169e1;
+  background-color: #233672;
   margin: 0;
-  padding: 100px 0 50px 0;
+  padding: 0px 0 50px 0;
   z-index: 0;
   width: 100%;
+}
+section.sobre .container-img-profile {
+  max-width: 300px;
+}
+section.sobre .container-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .container-img-profile {
@@ -183,63 +196,64 @@ section.sobre {
   aspect-ratio: 1/1;
 }
 
-section.sobre .container-img-profile {
-  max-width: 300px;
+/* Seção Projetos */
+section.projetos {
+  background-color: #00a86a;
+  margin: 0;
+  padding: 50px 0 50px 0;
+  z-index: 0;
+  width: 100%;
 }
 
-section.sobre .container-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+div.gallery {
+  border: 1px solid #852368;
+  border-width: 0.2em;
+  background-color: #111111;
+}
+div.gallery img {
+  width: 100%;
+  height: 200px;
+}
+
+div.gallery:hover {
+  border: 1px solid #ffdead;
+}
+
+div.desc {
+  background-color: #111111;
+  padding: 5px;
+  text-align: center;
+}
+div.desc img {
+  height: 1.5em;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Seção Contato */
 section.contato {
   background-color: #111111;
   margin: 0;
-  padding: 100px 0 50px 0;
+  padding: 50px 0 50px 0;
   z-index: 0;
   width: 100%;
 }
-
-section.contato .container-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-}
-
 section.contato .container-form {
-  width: 62%;
+  width: 90%;
 }
-
 section.contato form .field {
   margin-bottom: -10px;
 }
-
 section.contato form label,
 section.contato form input,
 section.contato form textarea {
@@ -248,97 +262,56 @@ section.contato form textarea {
   display: block;
   padding: 1.2rem 0.6rem 0.4rem;
 }
-
-section.contato form label::-webkit-input-placeholder,
-section.contato form input::-webkit-input-placeholder,
-section.contato form textarea::-webkit-input-placeholder {
-  color: white;
+section.contato form input,
+section.contato form textarea {
+  border: 2px solid rgba(72, 216, 164, 0);
+  width: 100%;
+  display: block;
+  padding: 1.2rem 0.6rem 0.4rem;
 }
-
-section.contato form label:-ms-input-placeholder,
-section.contato form input:-ms-input-placeholder,
-section.contato form textarea:-ms-input-placeholder {
-  color: white;
-}
-
-section.contato form label::-ms-input-placeholder,
-section.contato form input::-ms-input-placeholder,
-section.contato form textarea::-ms-input-placeholder {
-  color: white;
-}
-
 section.contato form label::placeholder,
 section.contato form input::placeholder,
 section.contato form textarea::placeholder {
-  color: white;
+  color: #ffe4e1;
 }
-
 section.contato form label:required,
 section.contato form input:required,
 section.contato form textarea:required {
   outline: none;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
-
 section.contato form label:required:invalid,
 section.contato form input:required:invalid,
 section.contato form textarea:required:invalid {
-  -webkit-box-shadow: 2px 2px #f0535d;
-  box-shadow: 2px 2px #f0535d;
+  box-shadow: 2px 2px #852368;
 }
-
 section.contato form textarea {
   resize: none;
   height: 150px;
 }
-
 section.contato form label {
   pointer-events: none;
   height: 26px;
-  color: #727272;
-  -webkit-transform: translateY(-67px);
+  color: #233672;
   transform: translateY(-67px);
-  -webkit-transition: color 0.2s ease, font-size 0.2s ease, -webkit-transform 0.2s ease;
-  transition: color 0.2s ease, font-size 0.2s ease, -webkit-transform 0.2s ease;
+  transition: color 0.2s ease, font-size 0.2s ease;
   transition: transform 0.2s ease, color 0.2s ease, font-size 0.2s ease;
-  transition: transform 0.2s ease, color 0.2s ease, font-size 0.2s ease, -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease, font-size 0.2s ease;
 }
-
 section.contato form label.message {
-  -webkit-transform: translateY(-156px);
   transform: translateY(-156px);
 }
-
 section.contato form label .required {
-  color: #f0535d;
+  color: #852368;
 }
-
 section.contato form input:focus,
 section.contato form textarea:focus {
-  border: 2px solid #48d8a4;
+  border: 2px solid #00a86a;
 }
-
-section.contato form input:focus::-webkit-input-placeholder,
-section.contato form textarea:focus::-webkit-input-placeholder {
-  color: #3f3f3f;
-}
-
-section.contato form input:focus:-ms-input-placeholder,
-section.contato form textarea:focus:-ms-input-placeholder {
-  color: #3f3f3f;
-}
-
-section.contato form input:focus::-ms-input-placeholder,
-section.contato form textarea:focus::-ms-input-placeholder {
-  color: #3f3f3f;
-}
-
 section.contato form input:focus::placeholder,
 section.contato form textarea:focus::placeholder {
-  color: #3f3f3f;
+  color: #111111;
 }
-
 section.contato form input:focus ~ label,
 section.contato form input:valid ~ label,
 section.contato form textarea:focus ~ label,
@@ -346,16 +319,12 @@ section.contato form textarea:valid ~ label {
   font-size: 0.7rem;
   color: #48d8a4;
 }
-
 section.contato form input:focus ~ label,
 section.contato form input:valid ~ label {
-  -webkit-transform: translateY(-80px);
   transform: translateY(-80px);
 }
-
 section.contato form textarea:focus ~ label,
 section.contato form textarea:valid ~ label {
-  -webkit-transform: translateY(-168px);
   transform: translateY(-168px);
 }
 
@@ -367,19 +336,8 @@ section.contato form textarea:valid ~ label {
   padding: 0.5rem 1.5rem 1rem;
   border: none;
   margin-right: 5px;
-  -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-
-.btn:hover {
-  background-color: #852368;
-  padding: 0.5rem 1.8rem 1rem;
-}
-
-.btn:hover span {
-  right: 0.8rem;
-}
-
 .btn span {
   top: 8px;
   position: relative;
@@ -387,7 +345,6 @@ section.contato form textarea:valid ~ label {
   -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-
 .btn i {
   width: 1.8rem;
   opacity: 0;
@@ -399,68 +356,16 @@ section.contato form textarea:valid ~ label {
   will-change: right, opacity;
 }
 
+.btn:hover {
+  background-color: #852368;
+  padding: 0.5rem 1.8rem 1rem;
+}
+.btn:hover span {
+  right: 0.8rem;
+}
 .btn:hover i {
   opacity: 1;
   right: 0;
-}
-
-.container-social-i {
-  max-width: 500px;
-}
-
-.container-social-i ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.container-social-i ul a {
-  color: #394ff4;
-  -webkit-transition: color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out;
-}
-
-.container-social-i ul a:hover {
-  color: #f0535d;
-  background-color: transparent;
-}
-
-.container-social-i ul li {
-  width: 22px;
-  height: 22px;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-}
-
-.container-social-i ul li:hover {
-  -webkit-transform: scale(1.4);
-  transform: scale(1.4);
-}
-
-.container-social-i ul svg {
-  width: 20px;
-  height: 20px;
-  fill: #394ff4;
-}
-
-.container-social-i ul svg:hover {
-  fill: #f0535d;
 }
 
 /* Footer */
@@ -490,6 +395,7 @@ footer p {
 .angle:after {
   content: "";
   position: absolute;
+  top: -1px;
   z-index: 0;
 }
 
@@ -500,12 +406,11 @@ footer p {
 }
 
 .angle1 {
-  background-color: #4169e1;
+  background-color: #233672;
 }
 
 .angle1:after {
   background-color: #00a86a;
-  -webkit-clip-path: polygon(100% 100%, 100% 0, 0 0);
   clip-path: polygon(100% 100%, 100% 0%, 0% 0%, 0% 14%, 14% 14%, 14% 100%, 18% 100%, 18% 14%, 33% 14%, 33% 100%, 66% 100%, 66% 86%, 35% 86%, 35% 57%, 50% 57%, 50% 43%, 35% 43%, 35% 14%, 66% 14%, 66% 100%, 68% 100%, 68% 14%, 83% 100%, 98% 14%, 98% 100%);
 }
 
@@ -516,102 +421,94 @@ footer p {
 }
 
 .angle2 {
-  background-color: #111111;
+  background-color: #00a86a;
 }
 
 .angle2:after {
-  background-color: #4169e1;
-  -webkit-clip-path: polygon(100% 100%, 100% 0, 0 0);
+  background-color: #233672;
+  clip-path: polygon(100% 100%, 100% 0%, 0% 0%, 0% 14%, 14% 14%, 14% 100%, 18% 100%, 18% 14%, 33% 14%, 33% 100%, 66% 100%, 66% 86%, 35% 86%, 35% 57%, 50% 57%, 50% 43%, 35% 43%, 35% 14%, 66% 14%, 66% 100%, 68% 100%, 68% 14%, 83% 100%, 98% 14%, 98% 100%);
+}
+
+.angle3,
+.angle3:after {
+  height: 80px;
+  width: 100%;
+}
+
+.angle3 {
+  background-color: #111111;
+}
+
+.angle3:after {
+  background-color: #00a86a;
   clip-path: polygon(100% 100%, 100% 0%, 0% 0%, 0% 14%, 14% 14%, 14% 100%, 18% 100%, 18% 14%, 33% 14%, 33% 100%, 66% 100%, 66% 86%, 35% 86%, 35% 57%, 50% 57%, 50% 43%, 35% 43%, 35% 14%, 66% 14%, 66% 100%, 68% 100%, 68% 14%, 83% 100%, 98% 14%, 98% 100%);
 }
 
 /* ----- MENU ----- */
-div.stickyMenu {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-ul.navBar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.menuFlutuante {
   background-color: #111111;
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  z-index: 9;
+  padding: 1%;
 }
 
-ul.navBar > li {
-  float: left;
-  border-left: 1px solid #ffe4e1;
+.menuFlutuante:hover {
+  color: #852368;
 }
 
-ul.navBar > li a {
-  display: block;
-  color: #ffe4e1;
-  text-align: center;
-  padding: 14px 16px;
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
   text-decoration: none;
-}
-
-ul.navBar > li img {
+  font-size: 25px;
+  color: #818181;
   display: block;
-  padding: 14px 16px;
+  transition: 0.3s;
 }
-
-ul.navBar > li a:hover:not(.active) {
-  background-color: #852368;
+.sidenav a:hover {
+  color: #f1f1f1;
 }
-
-ul.navBar > li > a.active {
-  background-color: #4169e1;
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.sidenav img {
+  padding: 8px 8px 8px 32px;
 }
 
 /* AJUSTES DE MEDIA */
-@media (min-width: 600px) {
-  header {
-    padding-top: 120px;
-    padding-bottom: 70px;
-  }
-}
-@media (min-width: 600px) {
-  header {
-    padding-bottom: 100px;
-  }
-}
-@media (min-width: 520px) {
-  .angle1,
-  .angle1:after {
-    height: 120px;
-  }
-}
-@media (min-width: 900px) {
-  .angle1,
-  .angle1:after {
-    height: 160px;
-  }
-}
 @media (min-width: 700px) {
   section.sobre .container-text {
     width: 70%;
     padding-left: 5%;
-    margin-right: 20%;
+    text-align: justify;
   }
 }
-@media (min-width: 800px) {
-  section.contato .container-social {
-    width: 37%;
-    padding: 188px 0 0 35px;
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
   }
 }
-@media (min-width: 991px) {
-  section.contato .container-social {
-    padding: 157px 0 0 40px;
-  }
-}
-@media (min-width: 1006px) {
-  section.contato .container-social {
-    padding: 126px 0 0 45px;
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
   }
 }
 

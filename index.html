@@ -15,20 +15,22 @@
   </head>
   <body>
     <!------ MENU ------>
-    <div class="stickyMenu">
-      <ul class="navBar">
-        <li style="float: left">
-          <img
-            src="source/images/DMThysgo logo.png"
-            alt="DMThysgo Logo"
-            height="20em"
-          />
-        </li>
-        <li style="float: right"><a href="#home">Inicio</a></li>
-        <li style="float: right"><a href="#sobre">Sobre</a></li>
-        <li style="float: right"><a href="#contato">Contato</a></li>
-      </ul>
+    <span class="menuFlutuante" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="https://thyago.portfoliogt.com.br/"><img
+          src="source/images/DMThysgo logo.png"
+          alt="DMThysgo Logo"
+          height="20em"
+        />
+      </a>
+      <a href="#home">Inicio</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
     </div>
+
+    <script src="source/scripts/offMenu.js"></script>
 
     <!------ Seção 1: Home ------>
     <header id="home">
@@ -79,10 +81,11 @@
             />
           </div>
           <div class="container-text">
-            <h4>Em construção</h4>
-            <p class="caveatFont">Em construção</p>
-            <p class="caveatFont">Em construção</p>
-            <p class="caveatFont">Em construção</p>
+            <h4>Sou um profissional apaixonado por tecnologia, inovação e aprendizado contínuo. </h4>
+            <p>Com uma trajetória diversa, já atuei como educador, onde planejei e organizei aulas de alta qualidade, engajando estudantes com metodologias diferenciadas. Como Coordenador de projetos, liderei uma equipe com mais de 20 colaboradores, focando na melhoria das KPI's (indicadores de desempenho).</p>
+            <p>Também trabalhei na captação de clientes e colaboradores, formulando processos de recrutamento e materiais de divulgação. Como Formador, tanto no suporte técnico quanto na liderança de salas de aula, acompanhei desempenhos e elaborei relatórios, além de revisar e lecionar materiais didáticos para formar novos líderes.</p>
+            <p>Meu projeto de vida é transformar positivamente a vida das pessoas, ampliando suas oportunidades e proporcionando acesso ao que há de melhor. Busco sempre crescer profissionalmente e impactar de forma significativa a vida das pessoas ao meu redor.</p>
+            <p>Atualmente, estou me especializando na transição da minha carreira para a área de tecnologia, onde já formei mais de 100 pessoas lecionando sobre HTML, CSS, JavaScript, React, MongoDB e Node.js.</p>
             <div class="container-txt-link specialEliteFont">
               <a href="./#contato" class="u-line">Entre em contato!</a>
             </div>
@@ -93,11 +96,70 @@
     </section>
     <div class="angle angle2"></div>
 
-    <!------ Seção 2: Sobre ------>
+    <!------ Seção 3: Projetos ------>
+
+    <section class="projetos" id="projetos">
+      <div class="wrapperHome">
+        <h2>Projetos</h2>
+        <div class="responsive">
+          <div class="gallery">
+            <a target="_blank" href="https://github.com/DMthysgo/dndptbr">
+              <img src="source/images/ficha interativa.png" alt="Ficha Interativa" width="600" height="400">
+            </a>
+            <div class="desc">
+              <h4>Ficha interativa</h4>
+              <img height="10em" src="https://skillicons.dev/icons?i=html,css,js,nodejs,mongodb,aws,vercel" />
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="responsive">
+          <div class="gallery">
+            <a target="_blank" href="https://github.com/DMthysgo/backendAulaNeogrid">
+              <img src="source/images/Matrix effect w-Parallax.png" alt="Forest" width="600" height="400">
+            </a>
+            <div class="desc">
+              <h4>Matrix w/Parallax</h4>
+              <img height="10em" src="https://skillicons.dev/icons?i=html,css,js" />
+            </div>
+          </div>
+        </div>
+        
+        <div class="responsive">
+          <div class="gallery">
+            <a target="_blank" href="https://github.com/DMthysgo/backendAulaNeogrid">
+              <img src="source/images/API Cripto.png" alt="Northern Lights" width="600" height="400">
+            </a>
+            <div class="desc">
+              <h4>API Criptografada</h4>
+              <img height="10em" src="https://skillicons.dev/icons?i=nodejs,mongodb" />
+            </div>
+          </div>
+        </div>
+        
+        <div class="responsive">
+          <div class="gallery">
+            <a target="_blank" href="https://thyago.portfoliogt.com.br/">
+              <img src="source/images/DMThysgo portfolio.png" alt="Mountains" width="600" height="400">
+            </a>
+            <div class="desc">
+              <h4>Portfolio</h4>
+              <img height="10em" src="https://skillicons.dev/icons?i=html,sass,js" />
+            </div>
+          </div>
+        </div>
+        
+        <div class="clearfix"></div>
+      </div>
+      <!-- /.wrapper -->
+    </section>
+    <div class="angle angle3"></div>
+
+    <!------ Seção 4: Contato ------>
     <section class="contato" id="contato">
       <div class="wrapperHome">
         <h2>Contato</h2>
-        <h3>Entre em contato!</h3>
         <div class="container-content">
           <div class="container-form">
             <p>Você quer me dizer bom dia, pedir meu currículo ou ver se podemos construir algo incrível juntos? Eu adoraria receber uma mensagem sua!</p>
@@ -105,7 +167,7 @@
             <form action="https://formspree.io/f/xdoqjlkr" method="POST">
               <div class="field">
                 <input type="text" name="name" id="name" required="required"  placeholder="Jessika Ribeiro">
-                <label for="name">Name<span class="required">*</span></label>
+                <label for="name">Nome<span class="required">*</span></label>
               </div>
               <div class="field">
                 <input type="email" name="_replyto" id="email" required="required" placeholder="eu_sou_um@robo.com">
@@ -113,45 +175,15 @@
               </div>
               <div class="field">
                 <textarea type="textbox" name="message" id="message" required="required" placeholder="Querido Thyago, estou interessado em seu currículo."></textarea>
-                <label for="message" class="message">Message<span class="required">*</span></label>
+                <label for="message" class="message">Mensagem<span class="required">*</span></label>
               </div>
               <button class="btn specialEliteFont" value="send">
-                <span>Send email</span>
+                <span>Enviar email</span>
                 <i class="far fa-envelope-open" aria-hidden="true"></i>
               </button>
             </form>
             </form>
           </div>
-          
-        <div class="container-social">
-          <p class="bold">Buscando minhas redes sociais? Me encontre online também!</p>
-          <div class="container-social-i">
-            <ul>
-              
-              <!-- TWITTER -->
-              <li>
-                <a href="https://twitter.com/dmthysgo" target="_blank" aria-label="Abrir a página do Twitter de Thyago Melo"><i class="fab fa-twitter" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
-              </li>
-              
-                <!-- CODEPEN -->
-                <li>
-                  <a href="https://codepen.io/" target="_blank" aria-label="Abrir a página do CodePen de Thyago Melo"><i class="fab fa-codepen" aria-hidden="true"></i></i><span class="visually-hidden">CodePen</span></a>
-                </li>
-                
-                <!-- GITHUB -->
-                <li>
-                  <a href="https://github.com/DMThysgo" target="_blank" aria-label="Abrir a página do GitHub de Thyago Melo"><i class="fab fa-github" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
-                </li>
-                
-              <!-- INSTAGRAM -->
-                <li>
-                  <a href="http://instagram.com/dmthysgo" target="_blank" aria-label="Abrir a página do Instagram de Thyago Melo."><i class="fab fa-instagram" aria-hidden="true"></i><span class="visually-hidden">Instagram</span></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
       </div> <!-- /.wrapper -->
     </section>
     

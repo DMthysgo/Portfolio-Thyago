@@ -1,7 +1,7 @@
 /* ----- CORES ----- */
 $corPrincipal: #00a86a; /* -- JADE --*/
 $corComplementar: #852368; /* -- PÚRPURA --*/
-$corDestaque: #4169e1; /* -- AZUL REAL --*/
+$corDestaque: #233672; /* -- AZUL REAL --*/
 $corNeutra: #ffdead; /* -- BRANCO NAVAJO --*/
 $corClara: #ffe4e1; /* -- ROSA EMBAÇADO --*/
 $corEscura: #111111; /* -- QUANTUM --*/
@@ -14,7 +14,9 @@ $sedanSCFont: "Sedan SC", serif;
 $specialEliteFont: "Special Elite", system-ui;
 
 body {
+  transition: background-color 0.5s;
   font: {
+    background-color: $corEscura;
     family: $sedanSCFont, $specialEliteFont, $caveatFont;
     optical-sizing: auto;
     weight: 400;
@@ -40,6 +42,7 @@ body {
 * {
   color: $corNeutra;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 /* ----- SEÇÕES ----- */
@@ -81,9 +84,21 @@ header:before {
 section.sobre {
   background-color: $corDestaque;
   margin: 0;
-  padding: 100px 0 50px 0;
+  padding: 0px 0 50px 0;
   z-index: 0;
   width: 100%;
+
+  .container-img-profile {
+    max-width: 300px;
+  }
+
+  .container-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 
 .container-img-profile {
@@ -94,182 +109,136 @@ section.sobre {
   aspect-ratio: 1/1;
 }
 
-section.sobre .container-img-profile {
-  max-width: 300px;
+/* Seção Projetos */
+section.projetos {
+  background-color: $corPrincipal;
+  margin: 0;
+  padding: 50px 0 50px 0;
+  z-index: 0;
+  width: 100%;
+}
+div.gallery {
+  border: 1px solid $corComplementar;
+  border-width: 0.2em;
+  background-color: $corEscura;
+  img {
+    width: 100%;
+    height: 200px;
+  }
 }
 
-section.sobre .container-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+div.gallery:hover {
+  border: 1px solid $corNeutra;
+}
+
+div.desc {
+  background-color: $corEscura;
+  padding: 5px;
+  text-align: center;
+  img {
+    height: 1.5em;
+  }
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Seção Contato */
 section.contato {
   background-color: $corEscura;
   margin: 0;
-  padding: 100px 0 50px 0;
+  padding: 50px 0 50px 0;
   z-index: 0;
   width: 100%;
-}
 
-section.contato .container-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-}
-
-section.contato .container-form {
-  width: 62%;
-}
-
-section.contato form .field {
-  margin-bottom: -10px;
-}
-
-section.contato form label,
-section.contato form input,
-section.contato form textarea {
-  border: 2px solid rgba(72, 216, 164, 0);
-  width: 100%;
-  display: block;
-  padding: 1.2rem 0.6rem 0.4rem;
-}
-
-section.contato form label::-webkit-input-placeholder,
-section.contato form input::-webkit-input-placeholder,
-section.contato form textarea::-webkit-input-placeholder {
-  color: white;
-}
-
-section.contato form label:-ms-input-placeholder,
-section.contato form input:-ms-input-placeholder,
-section.contato form textarea:-ms-input-placeholder {
-  color: white;
-}
-
-section.contato form label::-ms-input-placeholder,
-section.contato form input::-ms-input-placeholder,
-section.contato form textarea::-ms-input-placeholder {
-  color: white;
-}
-
-section.contato form label::placeholder,
-section.contato form input::placeholder,
-section.contato form textarea::placeholder {
-  color: white;
-}
-
-section.contato form label:required,
-section.contato form input:required,
-section.contato form textarea:required {
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-section.contato form label:required:invalid,
-section.contato form input:required:invalid,
-section.contato form textarea:required:invalid {
-  -webkit-box-shadow: 2px 2px #f0535d;
-  box-shadow: 2px 2px #f0535d;
-}
-
-section.contato form textarea {
-  resize: none;
-  height: 150px;
-}
-
-section.contato form label {
-  pointer-events: none;
-  height: 26px;
-  color: #727272;
-  -webkit-transform: translateY(-67px);
-  transform: translateY(-67px);
-  -webkit-transition: color 0.2s ease, font-size 0.2s ease,
-    -webkit-transform 0.2s ease;
-  transition: color 0.2s ease, font-size 0.2s ease, -webkit-transform 0.2s ease;
-  transition: transform 0.2s ease, color 0.2s ease, font-size 0.2s ease;
-  transition: transform 0.2s ease, color 0.2s ease, font-size 0.2s ease,
-    -webkit-transform 0.2s ease;
-}
-
-section.contato form label.message {
-  -webkit-transform: translateY(-156px);
-  transform: translateY(-156px);
-}
-
-section.contato form label .required {
-  color: #f0535d;
-}
-
-section.contato form input:focus,
-section.contato form textarea:focus {
-  border: 2px solid #48d8a4;
-}
-
-section.contato form input:focus::-webkit-input-placeholder,
-section.contato form textarea:focus::-webkit-input-placeholder {
-  color: #3f3f3f;
-}
-
-section.contato form input:focus:-ms-input-placeholder,
-section.contato form textarea:focus:-ms-input-placeholder {
-  color: #3f3f3f;
-}
-
-section.contato form input:focus::-ms-input-placeholder,
-section.contato form textarea:focus::-ms-input-placeholder {
-  color: #3f3f3f;
-}
-
-section.contato form input:focus::placeholder,
-section.contato form textarea:focus::placeholder {
-  color: #3f3f3f;
-}
-
-section.contato form input:focus ~ label,
-section.contato form input:valid ~ label,
-section.contato form textarea:focus ~ label,
-section.contato form textarea:valid ~ label {
-  font-size: 0.7rem;
-  color: #48d8a4;
-}
-
-section.contato form input:focus ~ label,
-section.contato form input:valid ~ label {
-  -webkit-transform: translateY(-80px);
-  transform: translateY(-80px);
-}
-
-section.contato form textarea:focus ~ label,
-section.contato form textarea:valid ~ label {
-  -webkit-transform: translateY(-168px);
-  transform: translateY(-168px);
+  .container-form {
+    width: 90%;
+  }
+  form .field {
+    margin-bottom: -10px;
+  }
+  form label,
+  form input,
+  form textarea {
+    border: 2px solid rgba(72, 216, 164, 0);
+    width: 100%;
+    display: block;
+    padding: 1.2rem 0.6rem 0.4rem;
+  }
+  form input,
+  form textarea {
+    border: 2px solid rgba(72, 216, 164, 0);
+    width: 100%;
+    display: block;
+    padding: 1.2rem 0.6rem 0.4rem;
+  }
+  form label::placeholder,
+  form input::placeholder,
+  form textarea::placeholder {
+    color: $corClara;
+  }
+  form label:required,
+  form input:required,
+  form textarea:required {
+    outline: none;
+    box-shadow: none;
+  }
+  form label:required:invalid,
+  form input:required:invalid,
+  form textarea:required:invalid {
+    box-shadow: 2px 2px $corComplementar;
+  }
+  form textarea {
+    resize: none;
+    height: 150px;
+  }
+  form label {
+    pointer-events: none;
+    height: 26px;
+    color: $corDestaque;
+    transform: translateY(-67px);
+    transition: color 0.2s ease, font-size 0.2s ease;
+    transition: transform 0.2s ease, color 0.2s ease, font-size 0.2s ease;
+    transition: transform 0.2s ease, color 0.2s ease, font-size 0.2s ease;
+  }
+  form label.message {
+    transform: translateY(-156px);
+  }
+  form label .required {
+    color: $corComplementar;
+  }
+  form input:focus,
+  form textarea:focus {
+    border: 2px solid $corPrincipal;
+  }
+  form input:focus::placeholder,
+  form textarea:focus::placeholder {
+    color: $corEscura;
+  }
+  form input:focus ~ label,
+  form input:valid ~ label,
+  form textarea:focus ~ label,
+  form textarea:valid ~ label {
+    font-size: 0.7rem;
+    color: #48d8a4;
+  }
+  form input:focus ~ label,
+  form input:valid ~ label {
+    transform: translateY(-80px);
+  }
+  form textarea:focus ~ label,
+  form textarea:valid ~ label {
+    transform: translateY(-168px);
+  }
 }
 
 .btn {
@@ -280,100 +249,37 @@ section.contato form textarea:valid ~ label {
   padding: 0.5rem 1.5rem 1rem;
   border: none;
   margin-right: 5px;
-  -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
+
+  span {
+    top: 8px;
+    position: relative;
+    right: 0;
+    -webkit-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+  }
+  i {
+    width: 1.8rem;
+    opacity: 0;
+    position: absolute;
+    top: 28%;
+    right: 20px;
+    -webkit-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    will-change: right, opacity;
+  }
 }
 
 .btn:hover {
   background-color: $corComplementar;
   padding: 0.5rem 1.8rem 1rem;
-}
-
-.btn:hover span {
-  right: 0.8rem;
-}
-
-.btn span {
-  top: 8px;
-  position: relative;
-  right: 0;
-  -webkit-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-}
-
-.btn i {
-  width: 1.8rem;
-  opacity: 0;
-  position: absolute;
-  top: 28%;
-  right: 20px;
-  -webkit-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  will-change: right, opacity;
-}
-
-.btn:hover i {
-  opacity: 1;
-  right: 0;
-}
-
-.container-social-i {
-  max-width: 500px;
-}
-
-.container-social-i ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.container-social-i ul a {
-  color: #394ff4;
-  -webkit-transition: color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out;
-}
-
-.container-social-i ul a:hover {
-  color: #f0535d;
-  background-color: transparent;
-}
-
-.container-social-i ul li {
-  width: 22px;
-  height: 22px;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-}
-
-.container-social-i ul li:hover {
-  -webkit-transform: scale(1.4);
-  transform: scale(1.4);
-}
-
-.container-social-i ul svg {
-  width: 20px;
-  height: 20px;
-  fill: #394ff4;
-}
-
-.container-social-i ul svg:hover {
-  fill: #f0535d;
+  span {
+    right: 0.8rem;
+  }
+  i {
+    opacity: 1;
+    right: 0;
+  }
 }
 
 /* Footer */
@@ -405,6 +311,7 @@ footer p {
 .angle:after {
   content: "";
   position: absolute;
+  top: -1px;
   z-index: 0;
 }
 
@@ -420,7 +327,6 @@ footer p {
 
 .angle1:after {
   background-color: $corPrincipal;
-  -webkit-clip-path: polygon(100% 100%, 100% 0, 0 0);
   clip-path: polygon(
     100% 100%,
     100% 0%,
@@ -457,12 +363,52 @@ footer p {
 }
 
 .angle2 {
-  background-color: $corEscura;
+  background-color: $corPrincipal;
 }
 
 .angle2:after {
   background-color: $corDestaque;
-  -webkit-clip-path: polygon(100% 100%, 100% 0, 0 0);
+  clip-path: polygon(
+    100% 100%,
+    100% 0%,
+    0% 0%,
+    0% 14%,
+    14% 14%,
+    14% 100%,
+    18% 100%,
+    18% 14%,
+    33% 14%,
+    33% 100%,
+    66% 100%,
+    66% 86%,
+    35% 86%,
+    35% 57%,
+    50% 57%,
+    50% 43%,
+    35% 43%,
+    35% 14%,
+    66% 14%,
+    66% 100%,
+    68% 100%,
+    68% 14%,
+    83% 100%,
+    98% 14%,
+    98% 100%
+  );
+}
+
+.angle3,
+.angle3:after {
+  height: 80px;
+  width: 100%;
+}
+
+.angle3 {
+  background-color: $corEscura;
+}
+
+.angle3:after {
+  background-color: $corPrincipal;
   clip-path: polygon(
     100% 100%,
     100% 0%,
@@ -493,100 +439,69 @@ footer p {
 }
 
 /* ----- MENU ----- */
-
-div.stickyMenu {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-ul.navBar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.menuFlutuante {
   background-color: $corEscura;
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  z-index: 9;
+  padding: 1%;
+}
+.menuFlutuante:hover {
+  color: $corComplementar;
 }
 
-ul.navBar > li {
-  float: left;
-  border-left: 1px solid $corClara;
-}
-
-ul.navBar > li a {
-  display: block;
-  color: $corClara;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul.navBar > li img {
-  display: block;
-  padding: 14px 16px;
-}
-
-ul.navBar > li a:hover:not(.active) {
-  background-color: $corComplementar;
-}
-
-ul.navBar > li > a.active {
-  background-color: $corDestaque;
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  a:hover {
+    color: #f1f1f1;
+  }
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  img {
+    padding: 8px 8px 8px 32px;
+  }
 }
 
 /* AJUSTES DE MEDIA */
-
-@media (min-width: 600px) {
-  header {
-    padding-top: 120px;
-    padding-bottom: 70px;
-  }
-}
-
-@media (min-width: 600px) {
-  header {
-    padding-bottom: 100px;
-  }
-}
-
-@media (min-width: 520px) {
-  .angle1,
-  .angle1:after {
-    height: 120px;
-  }
-}
-
-@media (min-width: 900px) {
-  .angle1,
-  .angle1:after {
-    height: 160px;
-  }
-}
-
 @media (min-width: 700px) {
   section.sobre .container-text {
     width: 70%;
     padding-left: 5%;
-    margin-right: 20%;
+    text-align: justify;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
   }
 }
 
-@media (min-width: 800px) {
-  section.contato .container-social {
-    width: 37%;
-    padding: 188px 0 0 35px;
-  }
-}
-
-@media (min-width: 991px) {
-  section.contato .container-social {
-    padding: 157px 0 0 40px;
-  }
-}
-
-@media (min-width: 1006px) {
-  section.contato .container-social {
-    padding: 126px 0 0 45px;
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
   }
 }
