@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thyago Ezequiel de Melo – Currículo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-color: #f4f4f9;
+        --text-color: #333;
+        --accent-color: #7b2cbf;
+        --card-color: #fff;
+        --primary: #7b2cbf;
+        --marker-filled: #7b2cbf;
+        --marker-empty: #ccc;
+      }
+
+      body.dark {
+        --bg-color: #1c1c1e;
+        --text-color: #f5f5f5;
+        --accent-color: #bb86fc;
+        --card-color: #2c2c2e;
+        --primary: #bb86fc;
+        --marker-filled: #bb86fc;
+        --marker-empty: #555;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .container {
+        max-width: 900px;
+        width: 100%;
+        background: var(--card-color);
+        padding: 40px 30px 80px;
+        border-radius: 10px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      /* FOTO */
+      .profile-pic {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--accent-color);
+      }
+
+      @media (max-width: 600px) {
+        .profile-pic {
+          position: static;
+          display: block;
+          margin: 0 auto 20px;
+        }
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 20px;
+      }
+
+      header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 10px 0 5px;
+      }
+
+      header p.role {
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      h2 {
+        color: var(--primary);
+        margin-top: 40px;
+        border-bottom: 1px solid var(--primary);
+        padding-bottom: 6px;
+      }
+
+      section {
+        margin-bottom: 30px;
+      }
+
+      .box {
+        background: var(--bg-color);
+        border-left: 4px solid var(--accent-color);
+        padding: 15px 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+      }
+
+      .box strong {
+        display: block;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .box span {
+        display: block;
+        font-size: 14px;
+        margin-top: 2px;
+        color: var(--text-color);
+      }
+
+      .skills-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .skills-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .markers {
+        display: flex;
+        gap: 4px;
+        margin-right: 10px;
+      }
+
+      .marker {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--marker-empty);
+      }
+
+      .marker.filled {
+        background: var(--marker-filled);
+      }
+
+      .timeline {
+        border-left: 2px solid var(--accent-color);
+        padding-left: 20px;
+        margin-top: 20px;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .timeline-item::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        position: absolute;
+        left: -25px;
+        top: 4px;
+      }
+
+      .timeline-item h4 {
+        margin: 0;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .timeline-item span {
+        font-size: 14px;
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      /* SWITCHES */
+      .switch-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 1000;
+      }
+
+      .toggle {
+        position: relative;
+        width: 64px;
+        height: 28px;
+        background-color: var(--card-color);
+        border: 2px solid var(--accent-color);
+        border-radius: 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 2px;
+        transition: background-color 0.3s;
+      }
+
+      .toggle-ball {
+        position: absolute;
+        top: 2px;
+        width: 24px;
+        height: 24px;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        z-index: 1;
+      }
+
+      .toggle-icon {
+        position: absolute;
+        top: 5px;
+        font-size: 16px;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      /* Theme toggle positioning */
+      .toggle.theme .toggle-ball {
+        left: 2px;
+      }
+      .toggle.theme.active .toggle-ball {
+        left: calc(100% - 26px);
+      }
+      .toggle.theme .toggle-icon {
+        left: calc(100% - 22px);
+      }
+      .toggle.theme.active .toggle-icon {
+        left: 6px;
+      }
+
+      /* Language toggle positioning */
+      .toggle.lang .toggle-ball {
+        left: calc(100% - 26px);
+      }
+      .toggle.lang.active .toggle-ball {
+        left: 2px;
+      }
+      .toggle.lang .toggle-icon {
+        left: 6px;
+      }
+      .toggle.lang.active .toggle-icon {
+        left: calc(100% - 22px);
+      }
+
+      .language-level {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .language-level img {
+        margin: 0 10px;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .about-text {
+        text-align: justify;
+      }
+      .skills-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 20px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      @media (max-width: 600px) {
+        .skills-list {
+          grid-template-columns: 1fr; /* Apenas 1 coluna no mobile */
+        }
+      }
+
+      .skills-list li {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+      }
+      .language-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 20px;
+      }
+
+      @media (max-width: 600px) {
+        .language-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .language-level {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="switch-container">
+      <div class="toggle theme" id="themeToggle" onclick="toggleTheme()">
+        <div class="toggle-icon" id="theme-icon">🌞</div>
+        <div class="toggle-ball"></div>
+      </div>
+      <div class="toggle lang" id="langToggle" onclick="toggleLanguage()">
+        <div class="toggle-icon" id="lang-icon">🇧🇷</div>
+        <div class="toggle-ball"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!--
+        <img
+        src="source/images/thysgo.png"
+        alt="Foto de Thyago"
+        class="profile-pic"
+      />
+-->
+      <header>
+        <h1>Thyago Ezequiel de Melo</h1>
+        <p
+          class="role"
+          data-en="Data Analyst | Project Manager | Developer | AI Management"
+          data-pt="Analista de dados | Gerente de Projetos | Desenvolvedor | Gestão de IA"
+        ></p>
+      </header>
+
+      <section>
+        <h2 data-en="About Me" data-pt="Sobre Mim"></h2>
+        <p
+          class="about-text"
+          data-en="With a background that integrates education, data analysis, project management, and technological development, I began my career as an educator, creating innovative methodologies to engage diverse audiences. I progressed to project leadership, coordinating teams of over 20 people and driving performance indicators. In recent years, I've specialized in technology, working as a developer and on artificial intelligence initiatives. I teach programming, evaluate AI-based solutions, and apply data-driven analysis to support decision-making. I'm passionate about generating social impact through access to technology and am ready to contribute with a strategic vision, empathetic leadership, and a multidisciplinary approach focused on results."
+          data-pt="Com uma trajetória que integra educação, análise de dados, gestão de projetos e desenvolvimento tecnológico. Iniciei minha carreira como educador, criando metodologias inovadoras para engajar diversos públicos. Evoluí para a liderança de projetos, coordenando equipes com mais de 20 pessoas e impulsionando indicadores de desempenho. Nos últimos anos, me especializei em tecnologia, atuando como desenvolvedor e em iniciativas voltadas à inteligência artificial. Ensino programação, avalio soluções baseadas em IA e aplico análises orientadas por dados para apoiar a tomada de decisão. Tenho paixão por gerar impacto social por meio do acesso à tecnologia e estou pronto para contribuir com uma visão estratégica, liderança empática e abordagem multidisciplinar focada em resultados."
+        ></p>
+      </section>
+
+      <section>
+        <h2 data-en="Academic Experience" data-pt="Experiência Acadêmica"></h2>
+        <div class="box">
+          <strong>Universidade Federal de Campina Grande</strong>
+          <span
+            data-en="BSc in Economics • 2018–2022 • GPA: 3.72"
+            data-pt="Bacharelado em Economia • 2018–2022 • CR: 9,3"
+          ></span>
+        </div>
+        <div class="box">
+          <strong>Colégio Alfredo Dantas</strong>
+          <span
+            data-en="High School • 2014–2016 • GPA: 3.26"
+            data-pt="Ensino Médio • 2014–2016 • CR: 8,16"
+          ></span>
+        </div>
+      </section>
+
+      <section>
+        <h2
+          data-en="Professional Experience"
+          data-pt="Experiência Profissional"
+        ></h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4 data-en="Advisor" data-pt="Conselheiro"></h4>
+            <span
+              data-en="2018–2019 • Conselho Academico de Economia da UFCG"
+              data-pt="2018–2019 • UFCG Academic Council of Economics"
+            ></span>
+          </div>
+          <div class="timeline-item">
+            <h4
+              data-en="Statistics Assistant"
+              data-pt="Auxiliar de Estatística"
+            ></h4>
+            <span
+              data-en="2019–2020 • Group 6 Sigma and Campina Grande City Hall"
+              data-pt="2019–2020 • Grupo 6 Sigma e Prefeitura de Campina Grande"
+            ></span>
+          </div>
+          <div class="timeline-item">
+            <h4 data-en="CFO" data-pt="Diretor Financeiro"></h4>
+            <span
+              data-en="2020 • E‑Resistance"
+              data-pt="2020 • E‑Resistance"
+            ></span>
+          </div>
+          <div class="timeline-item">
+            <h4 data-en="Business Analyst" data-pt="Analista de Negócios"></h4>
+            <span
+              data-en="2020–2021 • Cloud Humans"
+              data-pt="2020–2021 • Cloud Humans"
+            ></span>
+          </div>
+          <div class="timeline-item">
+            <h4 data-en="Entrepreneur" data-pt="Empreendedor"></h4>
+            <span
+              data-en="2021–2024 • ERRA / Sebrae / Senai / IEL"
+              data-pt="2021–2024 • ERRA / Sebrae / Senai / IEL"
+            ></span>
+          </div>
+          <div class="timeline-item">
+            <h4
+              data-en="Project coordinator"
+              data-pt="Coordenador de projetos"
+            ></h4>
+            <span
+              data-en="2022–2023 • Alicerce Educação"
+              data-pt="2022–2023 • Alicerce Educação"
+            ></span>
+          </div>
+          <div class="timeline-item">
+            <h4
+              data-en="AI project management"
+              data-pt="Gestão de projetos em IA"
+            ></h4>
+            <span
+              data-en="2023–2025 • Outlier"
+              data-pt="2023–2025 • Outlier"
+            ></span>
+          </div>
+          <div class="timeline-item">
+            <h4
+              data-en="Telemarketing operator"
+              data-pt="Operador de telemarketing"
+            ></h4>
+            <span data-en="2025 • AeC" data-pt="2025 • AeC"></span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-en="Languages" data-pt="Idiomas"></h2>
+        <div class="language-grid">
+          <div class="language-level">
+            <div class="markers" data-level="5"></div>
+            <img src="https://flagcdn.com/24x18/br.png" alt="BR" />
+            <span data-en="Portuguese" data-pt="Português"></span>
+          </div>
+          <div class="language-level">
+            <div class="markers" data-level="4"></div>
+            <img src="https://flagcdn.com/24x18/us.png" alt="US" />
+            <span data-en="English" data-pt="Inglês"></span>
+          </div>
+          <div class="language-level">
+            <div class="markers" data-level="3"></div>
+            <img src="https://flagcdn.com/24x18/es.png" alt="ES" />
+            <span data-en="Spanish" data-pt="Espanhol"></span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-en="Skills & Tools" data-pt="Competências e Ferramentas"></h2>
+        <ul class="skills-list">
+          <li><span class="markers" data-level="5"></span>HTML/CSS</li>
+          <li><span class="markers" data-level="5"></span>JavaScript</li>
+          <li><span class="markers" data-level="2"></span>Java</li>
+          <li><span class="markers" data-level="3"></span>React</li>
+          <li><span class="markers" data-level="4"></span>Node.js</li>
+          <li><span class="markers" data-level="4"></span>MongoDB</li>
+          <li><span class="markers" data-level="4"></span>SQL</li>
+          <li><span class="markers" data-level="5"></span>Git/GitHub</li>
+          <li><span class="markers" data-level="3"></span>Power BI</li>
+          <li><span class="markers" data-level="2"></span>Data Studio</li>
+          <li><span class="markers" data-level="5"></span>Photoshop</li>
+          <li><span class="markers" data-level="4"></span>Scrum/Kanban</li>
+          <li><span class="markers" data-level="5"></span>AI Evaluation</li>
+          <li><span class="markers" data-level="4"></span>Excel</li>
+          <li><span class="markers" data-level="5"></span>Word</li>
+          <li><span class="markers" data-level="5"></span>PowerPoint</li>
+          <li><span class="markers" data-level="5"></span>Google Workspace</li>
+          <li><span class="markers" data-level="4"></span>E-mail Marketing</li>
+          <li>
+            <span class="markers" data-level="5"></span>
+            <span data-pt="Escrita Criativa" data-en="Creative Writing"></span>
+          </li>
+          <li>
+            <span class="markers" data-level="5"></span>
+            <span data-pt="Gestão de tempo" data-en="Time management"></span>
+          </li>
+          <li>
+            <span class="markers" data-level="5"></span>
+            <span data-pt="Treinamento de IA" data-en="AI Training"></span>
+          </li>
+          <li>
+            <span class="markers" data-level="4"></span>
+            <span data-pt="Mídias Digitais" data-en="Social Media"></span>
+          </li>
+          <li>
+            <span class="markers" data-level="5"></span>
+            <span
+              data-pt="Atendimento ao Cliente"
+              data-en="Costomer Service"
+            ></span>
+          </li>
+          <li>
+            <span class="markers" data-level="3"></span>
+            <span
+              data-pt="Enriquecimento de Leads"
+              data-en="Lead Enrichment"
+            ></span>
+          </li>
+          <li><span class="markers" data-level="4"></span>Compliance</li>
+          <li>
+            <span class="markers" data-level="4"></span>
+            <span data-pt="Gestão de riscos" data-en="Risk Management "></span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-en="Contact" data-pt="Contato"></h2>
+        <p><strong>Email:</strong> thyago.ezequiel.de.melo@gmail.com</p>
+        <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://linkedin.com/in/dmthysgo" target="_blank"
+            >dmthysgo</a
+          >
+        </p>
+        <p>
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/5583996576222" target="_blank"
+            >+55 (83) 99657-6222</a
+          >
+        </p>
+        <p>
+          <strong data-en="Location" data-pt="Localização"></strong>: Campina
+          Grande - Paraíba, Brasil
+        </p>
+      </section>
+    </div>
+
+    <script>
+      let currentLang = "pt";
+
+      function toggleLanguage() {
+        currentLang = currentLang === "pt" ? "en" : "pt";
+        document.querySelectorAll("[data-en]").forEach((el) => {
+          el.textContent = el.dataset[currentLang];
+        });
+
+        const langToggle = document.getElementById("langToggle");
+        const langIcon = document.getElementById("lang-icon");
+        langToggle.classList.toggle("active");
+        langIcon.textContent = currentLang === "pt" ? "🇧🇷" : "🇺🇸";
+      }
+
+      function toggleTheme() {
+        document.body.classList.toggle("dark");
+        const isDark = document.body.classList.contains("dark");
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = document.getElementById("theme-icon");
+        themeToggle.classList.toggle("active");
+        themeIcon.textContent = isDark ? "🌙" : "🌞";
+      }
+
+      function renderMarkers() {
+        document.querySelectorAll(".markers").forEach((container) => {
+          const level = parseInt(container.dataset.level);
+          container.innerHTML = "";
+          for (let i = 1; i <= 5; i++) {
+            const dot = document.createElement("div");
+            dot.className = "marker" + (i <= level ? " filled" : "");
+            container.appendChild(dot);
+          }
+        });
+      }
+
+      renderMarkers();
+      toggleLanguage(); // Começa em PT
+    </script>
+  </body>
+</html>
